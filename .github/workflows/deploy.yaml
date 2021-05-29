@@ -1,0 +1,21 @@
+name: Deploy ArgoCD
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deployment:
+    runs-on: 'ubuntu-latest'
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: 'Deploy ArgoCD'
+      uses: 'deliverybot/helm@v1'
+      with:
+        release: 'argo-cd'
+        namespace: 'argo-cd'
+        chart: 'argo-cd'
+      env:
+        KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
