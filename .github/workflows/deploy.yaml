@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  deployment:
+  deploy:
     runs-on: 'ubuntu-latest'
     steps:
     - name: Checkout
@@ -29,7 +29,8 @@ jobs:
       run: |
         echo "$SEALED_SECRET_CRT" > ./crt
         echo "$SEALED_SECRET_KEY" > ./key
-        kubectl -n kube-system create secret tls sealed-secrets-key --cert=./crt --key=./key --dry-run=client -o yaml | kubectl apply -f
+        kubectl -n kube-system create secret tls sealed-secrets-key --cert=./crt --key=./key \
+          --save-config --dry-run=client -o yaml | kubectl apply -f -
 
     - name: Deploy ArgoCD
       run: |
