@@ -14,6 +14,7 @@ jobs:
     - name: 'Deploy ArgoCD'
       uses: 'deliverybot/helm@v1'
       with:
+        helm: helm3
         release: 'argo-cd'
         namespace: 'argo-cd'
         chart: 'argo-cd'
