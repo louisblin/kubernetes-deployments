@@ -9,14 +9,28 @@ jobs:
   deployment:
     runs-on: 'ubuntu-latest'
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout
+      uses: actions/checkout@v1
 
-    - name: 'Deploy ArgoCD'
-      uses: 'deliverybot/helm@v1'
-      with:
-        helm: helm3
-        release: 'argo-cd'
-        namespace: 'argo-cd'
-        chart: 'argo-cd'
+    - name: Install Helm
+      uses: azure/setup-helm@v1
+
+    - name: Prepare kubeconfig
       env:
-        KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
+        KUBECONFIG: '${{ secrets.KUBECONFIG }}'
+      run: |
+        mkdir                ~/.kube
+        echo "$KUBECONFIG" > ~/.kube/config
+
+    - name: Prepare Sealed Secrets
+      env:
+        SEALED_SECRET_CRT: '${{ secrets.SEALED_SECRET_CRT }}'
+        SEALED_SECRET_KEY: '${{ secrets.SEALED_SECRET_KEY }}'
+      run: |
+        echo "$SEALED_SECRET_CRT" > ./crt
+        echo "$SEALED_SECRET_KEY" > ./key
+        kubectl -n kube-system create secret tls sealed-secrets-key --cert=./crt --key=./key
+
+    - name: Deploy ArgoCD
+      run: |
+        helm -n argo-cd upgrade --install --create-namespace argo-cd ./argo-cd
