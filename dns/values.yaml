@@ -7,6 +7,13 @@ external-dns:
     repository: external-dns/external-dns
     tag: v0.7.6
 
+  logLevel: debug
+
+  domainFilters:
+  - blin.dev
+  sources:
+  - service
+
   provider: cloudflare
   cloudflare:
     secretName: cloudflare-api-key
