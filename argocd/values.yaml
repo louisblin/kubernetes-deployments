@@ -5,11 +5,14 @@ global:
 
 argo-cd:
   server:
+    extraArgs:
+    - --insecure
+
     ingress:
       enabled: true
       annotations:
         kubernetes.io/ingress.class: traefik
-        cert-manager.io/cluster-issuer: letsencrypt
+        kubernetes.io/tls-acme: "true"
       hosts:
       - argocd.blin.dev
       tls:
@@ -18,6 +21,7 @@ argo-cd:
         secretName: argocd-tls
 
     config:
+      url: https://argocd.blin.dev
       repositories: |
         - name: kubernetes-deployments
           type: git
