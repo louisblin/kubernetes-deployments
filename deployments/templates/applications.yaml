@@ -1,0 +1,16 @@
+{{- range .Values.deployments }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ $.Release.Name }}-{{ .name }}
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/louisblin/kubernetes-deployments.git
+    targetRevision: {{ .revision | default "HEAD" }}
+    path: {{ .name }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ .namespace }}
+---
+{{- end }}
