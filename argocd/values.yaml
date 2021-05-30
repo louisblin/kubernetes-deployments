@@ -17,5 +17,12 @@ argo-cd:
         - argocd.blin.dev
         secretName: argocd-tls
 
+    config:
+      repositories: |
+        - type: git
+          url: https://github.com/louisblin/kubernetes-deployments
+        - type: helm
+          url: https://bitnami-labs.github.io/sealed-secrets
+
   dex:
     enabled: false
