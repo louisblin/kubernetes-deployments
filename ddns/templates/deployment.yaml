@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "ddns.fullname" . }}
+  labels:
+    {{- include "ddns.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "ddns.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "ddns.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        env:
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: cloudflare-api-key
+              key: key
+        - name: ZONE
+          value: {{ .Values.zone }}
+        - name: PROXIED
+          value: "false"

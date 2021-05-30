@@ -10,7 +10,7 @@ spec:
     path: deployments
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: {{ .Release.Namespace }}
   syncPolicy:
     automated:
       prune: true

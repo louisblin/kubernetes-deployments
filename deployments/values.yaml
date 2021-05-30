@@ -1,3 +1,5 @@
 deployments:
 - name: sealed-secrets
   namespace: kube-system
+- name: ddns
+  namespace: ddns
