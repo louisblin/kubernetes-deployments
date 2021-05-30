@@ -1,0 +1,6 @@
+dependencies:
+- name: filebrowser
+  repository: https://utkuozdemir.org/helm-charts
+  version: 0.1.1
+digest: sha256:ba0a54ec3803cb6023f9b4765bf3d561858b32e8a240934554e80fc3d74ebdeb
+generated: "2021-05-30T22:09:00.849878+01:00"

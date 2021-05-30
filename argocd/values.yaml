@@ -40,6 +40,9 @@ argo-cd:
         - name: sealed-secrets
           type: helm
           url: https://bitnami-labs.github.io/sealed-secrets
+        - name: utkuozdemir
+          type: helm
+          url: https://utkuozdemir.org/helm-charts
 
   dex:
     enabled: false

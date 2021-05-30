@@ -3,5 +3,7 @@ deployments:
   namespace: cert-manager
 - name: dns
   namespace: dns
+- name: filebrowser
+  namespace: filebrowser
 - name: sealed-secrets
   namespace: kube-system

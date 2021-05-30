@@ -1,0 +1,25 @@
+filebrowser:
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: traefik
+      kubernetes.io/tls-acme: "true"
+    hosts:
+    - host: files.blin.dev
+      paths:
+      - /
+    tls:
+    - hosts:
+      - files.blin.dev
+      secretName: filebrowser-tls
+
+  persistence:
+    db:
+      enabled: true
+      storageClassName: local-path
+    rootDir:
+      enabled: true
+      storageClassName: llb
+      accessModes:
+      - ReadWriteOnce
+      readOnly: true
