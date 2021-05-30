@@ -20,8 +20,8 @@ spec:
         - name: API_KEY
           valueFrom:
             secretKeyRef:
-              name: cloudflare-api-key
-              key: cloudflare_api_key
+              name: cloudflare-creds
+              key: cloudflare_api_token
         - name: ZONE
           value: {{ .Values.zone }}
         - name: PROXIED

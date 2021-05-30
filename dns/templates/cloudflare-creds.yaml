@@ -1,0 +1,13 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: cloudflare-creds
+  namespace: dns
+spec:
+  encryptedData:
+    cloudflare_api_token: AgAkFt5d1ibu+SO9aNMX9XWqiL3QG+o5HDT37PIpiC5UlVv7UIooAhm1dnda/xx+/oV5E2qc/LUzRAcs+t1H/lICRjMDVOGtutDecNmpp0KQ0Lt+4WoZ5gEpkKPrm6hk33A1+mSDZ5SXdN+BA6muZV2RmWhdixCCT3TUBRVvUKZZWKV+lLTiJC8EPfzDkNXt4bwr6BYLXtrNGzwTSNIqTYtsD3X9K06DGdDCiLS0V7uyVcy/PUdjFxGLqjO5C+dxuNSFLGQJJEzA4IxB4N/vfGjsb+1lkhZHYUDFFG2uOgDWPg7g+vdq3ozw12wVmU5H+x+XSXz3kCUAYSMI5jRwgMvw8IX/znwjxC/VI8UgW2uZSXsRVjg7qlJRxlyIc2oJ1GXYHWBt6GPYmqHnGU5MsQQ8W9bxvGnRaZtCnYpm8gq3gt4vXTL/6VaKiQ0RpnDS8N/4ydiXJa7+HwUmOwMRN7M8Wyi8PeQE4Lz+BZv51RwQTVUru/5zHeINfLofpojRkG2L4uBLu4ITN9qyW6pegdaBBlyXf40BhFpf5+Z+DQza1hhNBXKqJ5ZEJWD9fg2IPE58Jt944PkwgTLzKNjWnPydGVvfjtxnemiN9JA3MQO170HUJsTf2eRCkX8DUBX8ANi2V8m1xN9GwzGdJM6tl6JDDMrMs5NJ1M4805Qo2dAqbw61kwmQgMOgGFYnfHDNvU2oMvEyw6uwE1AyGnFpY3KUXu+PSXQxpZvDGXw7Zh/W+YM4EcJztrTi
+  template:
+    metadata:
+      name: cloudflare-creds
+      namespace: dns
+
