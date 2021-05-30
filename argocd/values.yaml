@@ -19,9 +19,11 @@ argo-cd:
 
     config:
       repositories: |
-        - type: git
+        - name: kubernetes-deployments
+          type: git
           url: https://github.com/louisblin/kubernetes-deployments
-        - type: helm
+        - name: sealed-secrets
+          type: helm
           url: https://bitnami-labs.github.io/sealed-secrets
 
   dex:
