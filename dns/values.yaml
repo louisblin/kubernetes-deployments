@@ -16,5 +16,6 @@ external-dns:
 
   provider: cloudflare
   cloudflare:
+    email: louis@blin.dev
     secretName: cloudflare-api-key
     proxied: false
