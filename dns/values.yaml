@@ -1,0 +1,7 @@
+zone: blin.dev
+
+external-dns:
+  provider: cloudflare
+  cloudflare:
+    secretName: cloudflare-api-key
+    proxied: false

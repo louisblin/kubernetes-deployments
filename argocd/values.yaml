@@ -22,12 +22,16 @@ argo-cd:
         - name: kubernetes-deployments
           type: git
           url: https://github.com/louisblin/kubernetes-deployments
-        - name: sealed-secrets
+
+        - name: bitnami
           type: helm
-          url: https://bitnami-labs.github.io/sealed-secrets
+          url: https://charts.bitnami.com/bitnami
         - name: jetstack
           type: helm
           url: https://charts.jetstack.io
+        - name: sealed-secrets
+          type: helm
+          url: https://bitnami-labs.github.io/sealed-secrets
 
   dex:
     enabled: false

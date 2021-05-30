@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "ddns.fullname" . }}
+  name: {{ include "dns.fullname" . }}-ddns
   labels:
-    {{- include "ddns.labels" . | nindent 4 }}
+    {{- include "dns.labels" . | nindent 4 }}
 spec:
   selector:
     matchLabels:
-      {{- include "ddns.selectorLabels" . | nindent 6 }}
+      {{- include "dns.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "ddns.selectorLabels" . | nindent 8 }}
+        {{- include "dns.selectorLabels" . | nindent 8 }}
     spec:
       containers:
-      - name: {{ .Chart.Name }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+      - name: {{ .Chart.Name }}-ddns
+        image: oznu/cloudflare-ddns:latest
         env:
         - name: API_KEY
           valueFrom:
             secretKeyRef:
               name: cloudflare-api-key
-              key: key
+              key: cloudflare_api_key
         - name: ZONE
           value: {{ .Values.zone }}
         - name: PROXIED

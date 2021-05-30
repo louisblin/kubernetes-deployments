@@ -1,5 +1,0 @@
-image:
-  repository: oznu/cloudflare-ddns
-  tag: latest
-
-zone: blin.dev

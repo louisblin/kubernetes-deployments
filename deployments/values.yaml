@@ -1,7 +1,7 @@
 deployments:
 - name: cert-manager
   namespace: cert-manager
-- name: ddns
-  namespace: ddns
+- name: dns
+  namespace: dns
 - name: sealed-secrets
   namespace: kube-system
