@@ -1,0 +1,12 @@
+cert-manager:
+  installCRDs: true
+  ingressShim:
+    defaultIssuerName: letsencrypt
+    defaultIssuerKind: clusterIssuer
+    defaultIssuerGroup: cert-manager.io
+
+clusterIssuers:
+- name: letsencrypt
+  server: https://acme-v02.api.letsencrypt.org/directory
+- name: letsencrypt-staging
+  server: https://acme-staging-v02.api.letsencrypt.org/directory
