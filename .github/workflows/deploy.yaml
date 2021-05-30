@@ -34,4 +34,4 @@ jobs:
 
     - name: Deploy ArgoCD
       run: |
-        helm -n argo-cd upgrade --install --create-namespace argo-cd ./argo-cd
+        helm -n argocd upgrade --install --create-namespace argocd ./argocd

@@ -4,8 +4,6 @@ global:
     tag: linux-arm64-v2.0.2
 
 argo-cd:
-  nameOverride: argo-cd
-
   server:
     ingress:
       enabled: true
