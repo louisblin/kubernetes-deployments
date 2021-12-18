@@ -3,6 +3,9 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: {{ .name }}
+  annotations:
+    # Prune reconciliations outside of source.path
+    argocd.argoproj.io/manifest-generate-paths: .
 spec:
   project: default
   source:
