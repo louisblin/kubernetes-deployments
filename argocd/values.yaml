@@ -34,6 +34,9 @@ argo-cd:
         - name: bitnami
           type: helm
           url: https://charts.bitnami.com/bitnami
+        - name: datadog
+          type: helm
+          url: https://helm.datadoghq.com
         - name: jetstack
           type: helm
           url: https://charts.jetstack.io

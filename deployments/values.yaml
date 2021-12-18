@@ -1,6 +1,8 @@
 deployments:
 - name: cert-manager
   namespace: cert-manager
+- name: datadog
+  namespace: datadog
 - name: dns
   namespace: dns
 - name: filebrowser
