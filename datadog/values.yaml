@@ -695,7 +695,16 @@ datadog:
     # clusterAgent.affinity -- Allow the Cluster Agent Deployment to schedule using affinity rules
     ## By default, Cluster Agent Deployment Pods are forced to run on different Nodes.
     ## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
-    affinity: {}
+    affinity:
+      # Cluster has a single node so make it a SOFT constraint to schedule on a different node.
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 1
+          podAffinityTerm:
+            labelSelector:
+              matchLabels:
+                app.kubernetes.io/component: cluster-agent
+            topologyKey: kubernetes.io/hostname
 
     # clusterAgent.healthPort -- Port number to use in the Cluster Agent for the healthz endpoint
     healthPort: 5556
