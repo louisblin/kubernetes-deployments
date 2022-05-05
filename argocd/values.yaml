@@ -1,9 +1,38 @@
 argo-cd:
   configs:
+    repositories:
+      git-kubernetes-deployments:
+        type: git
+        url: https://github.com/louisblin/kubernetes-deployments
+
+      helm-bitnami:
+        name: bitnami
+        type: helm
+        url: https://charts.bitnami.com/bitnami
+      helm-datadog:
+        name: datadog
+        type: helm
+        url: https://helm.datadoghq.com
+      helm-jetstack:
+        name: jetstack
+        type: helm
+        url: https://charts.jetstack.io
+      helm-sealed-secrets:
+        name: sealed-secrets
+        type: helm
+        url: https://bitnami-labs.github.io/sealed-secrets
+      helm-utkuozdemir:
+        name: utkuozdemir
+        type: helm
+        url: https://utkuozdemir.org/helm-charts
+
     secret:
       createSecret: false
 
   server:
+    config:
+      url: https://argocd.blin.dev
+
     extraArgs:
     - --insecure
 
@@ -18,29 +47,6 @@ argo-cd:
       - hosts:
         - argocd.blin.dev
         secretName: argocd-tls
-
-    config:
-      url: https://argocd.blin.dev
-      repositories: |
-        - name: kubernetes-deployments
-          type: git
-          url: https://github.com/louisblin/kubernetes-deployments
-
-        - name: bitnami
-          type: helm
-          url: https://charts.bitnami.com/bitnami
-        - name: datadog
-          type: helm
-          url: https://helm.datadoghq.com
-        - name: jetstack
-          type: helm
-          url: https://charts.jetstack.io
-        - name: sealed-secrets
-          type: helm
-          url: https://bitnami-labs.github.io/sealed-secrets
-        - name: utkuozdemir
-          type: helm
-          url: https://utkuozdemir.org/helm-charts
 
   applicationSet:
     enabled: false
