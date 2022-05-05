@@ -1,4 +1,2 @@
 sealed-secrets:
-  commandArgs:
-  - --update-status  # will be the default v0.17
   secretName: "sealed-secrets-key"
