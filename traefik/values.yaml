@@ -3,3 +3,6 @@ traefik:
     kubernetesIngress:
       publishedService:
         enabled: true
+
+  service:
+    type: NodePort
