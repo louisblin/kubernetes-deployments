@@ -6,6 +6,8 @@ metadata:
   annotations:
     # Prune reconciliations outside of source.path
     argocd.argoproj.io/manifest-generate-paths: .
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
