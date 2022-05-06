@@ -21,6 +21,10 @@ argo-cd:
         name: sealed-secrets
         type: helm
         url: https://bitnami-labs.github.io/sealed-secrets
+      helm-traefik:
+        name: traefik
+        type: helm
+        url: https://helm.traefik.io/traefik
       helm-utkuozdemir:
         name: utkuozdemir
         type: helm
