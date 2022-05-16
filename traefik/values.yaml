@@ -19,6 +19,7 @@ traefik:
 
   providers:
     kubernetesIngress:
+      ingressClass: traefik-internal
       publishedService:
         enabled: true
 
