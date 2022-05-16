@@ -17,6 +17,9 @@ traefik:
       - name: PROXIED
         value: "false"
 
+  ingressClass:
+    enabled: true
+
   providers:
     kubernetesIngress:
       ingressClass: traefik-internal
