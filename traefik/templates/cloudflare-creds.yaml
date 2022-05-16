@@ -1,0 +1,16 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: cloudflare-creds
+  namespace: traefik
+spec:
+  encryptedData:
+    cloudflare_api_token: AgAP8QsscfyVCWpjtxICXzIcGU7oTvEAASS90g2N+u1+u/htmuaY3C+lNL08/2bD1no8Z3N0Z3g1d7mHXw0N5gxY0OFaEc4c1CXUaZewBp676JLZ65K2/3jiVP2zCnh3LXwBFM193dG5FuAxxcXbTSbCm5Jy2skQBqXn2RAz7yPgC18tUbZv3j97OaOK0wZIdUdtHyC9Pb6NAwJoQhwkYCKAdh7QdKeWfzH4pBwgGRumwi4vVmkhmWnyoV0D6U0Lot1tXWEjMeuRYD9I9yNWix6Pa2n2tfLQnJcH53NmPOhLf4jdmcS1Vg5dBDLzz6zt01BgWxEMt9DaRniDuak6QX8so+AhlicK16ueCF+VqhYCk0WutqV8EfBCLWMTVQM7y92lxJohUQRy6qAj8RBcd9AU3Ori4bOYbi3w+dFGGnGzl64L0W8T2zOGhmxJl5Ei6oluxrONOUcJax21Y4lYmCYKfKxoOUVVOewgrvaPcrUVVa8mj1mEQC4YY9648DpTAX0D24YyBe51K7FUnXHlW76xhD9jtT5ElMDIvbdEtso2j7tZW/v3jiUtutxOb4QghkQ2DuU9zQmv5BtCKo6hCQmWfkgawy0zFsVMlehPF5HUpZelhO7HqWYEKleIMKxXUtOQxchazkPM3GhxP48n2yqpyyRpe57V+kqBy9AH0voKNxIoNRVHUBTHlhGPgpfXqUf1Riu3C6+UDcQB37Xn10dmlwbs82ME5DSChbzZ+7owx2sl5RQJ9BCk
+  template:
+    data: null
+    metadata:
+      creationTimestamp: null
+      name: cloudflare-creds
+      namespace: traefik
+

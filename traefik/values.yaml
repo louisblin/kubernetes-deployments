@@ -1,4 +1,19 @@
 traefik:
+  deployment:
+    additionalContainers:
+    - name: ddns
+      image: oznu/cloudflare-ddns:latest
+      env:
+      - name: API_KEY
+        valueFrom:
+          secretKeyRef:
+            name: cloudflare-creds
+            key: cloudflare_api_token
+      - name: ZONE
+        value: blin.dev
+      - name: PROXIED
+        value: "false"
+
   providers:
     kubernetesIngress:
       publishedService:
