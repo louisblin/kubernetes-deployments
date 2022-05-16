@@ -10,9 +10,8 @@ traefik:
             name: cloudflare-creds
             key: cloudflare_api_token
       - name: CUSTOM_LOOKUP_CMD
-        value: 'echo a5c41414909a644b0ac2ecff2d24b335-2024584576.us-east-1.elb.amazonaws.com'
-        # value: |
-        #   sh -c 'curl -H "Authorization: Bearer $(cat /run/secrets/kubernetes.io/serviceaccount/token)" --cacert /run/secrets/kubernetes.io/serviceaccount/ca.crt https://$KUBERNETES_PORT_443_TCP_ADDR:443/api/v1/namespaces/traefik/services/ | jq -r ".items[].status.loadBalancer.ingress[].hostname"'
+        value: |
+          sh -c 'curl -sH "Authorization: Bearer $(cat /run/secrets/kubernetes.io/serviceaccount/token)" --cacert /run/secrets/kubernetes.io/serviceaccount/ca.crt https://$KUBERNETES_PORT_443_TCP_ADDR:443/api/v1/namespaces/traefik/services/ | jq -r ".items[].status.loadBalancer.ingress[].hostname" | xargs dig +short | sort | head -n1'
       - name: ZONE
         value: blin.dev
       - name: PROXIED
