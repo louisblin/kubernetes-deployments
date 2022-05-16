@@ -4,5 +4,5 @@ traefik:
       publishedService:
         enabled: true
 
-  service:
-    type: NodePort
+  # service:
+  #   type: NodePort
